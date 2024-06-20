@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # own
-    'soac_base'
+    'soac_base',
+    'soac_users',
+    'crispy_forms',
+    'crispy_bootstrap4',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +131,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'soac_base:home'
+LOGIN_URL = 'login'
+MEDIA_URL =  '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
