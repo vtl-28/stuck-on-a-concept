@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # own
-    'soac_base'
+    'soac_base',
 ]
 
 MIDDLEWARE = [
