@@ -15,7 +15,7 @@ class QuestionListView(ListView):
     """ A class that list the recent questions based on Time """
     model = Question
     context_object_name = 'questions'
-    order = ['-date_created']
+    ordering = ['-date_create']
 
 class QuestionDetailView(DetailView):
     """A class that url the question and readmore"""
