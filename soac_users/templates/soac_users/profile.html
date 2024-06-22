@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'soac_base/questions-base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title></title>
         <script src="https://unpkg.com/feather-icons"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+        {% comment %} <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> {% endcomment %}
 
         <style>
             body {
@@ -19,7 +19,7 @@
         }
 
         .padding {
-            padding-top: 6rem !important
+            padding: 4rem 0rem;
         }
 
         .user-card-full {
@@ -47,8 +47,8 @@
         }
 
         .bg-c-lite-green {
-            background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
-            background: linear-gradient(to right, rgb(255, 208, 0), orange)
+            background: -webkit-gradient(linear, left top, right top, from(#001848), to(#001848));
+            background: linear-gradient(to right, rgb(0, 24, 72), blue)
         }
 
         .user-profile {
@@ -159,30 +159,30 @@
         <div class="page-content page-container" id="page-content">
             <div class="padding">
                 <div class="row  d-flex justify-content-center">
-                    <div class="col-xl-6 col-md-12">
-                        <div class="card user-card-full">
+                    <div class="col-xl-6 col-md-12 card p-4" >
+                        <div class="user-card-full">
                             <div class="row m-l-0 m-r-0">
                                 <div class="col-sm-4 bg-c-lite-green user-profile">
                                     <div class="card-block text-center text-white">
-                                        <div class="m-b-25"> <img src="{{ user.profile.image.url }}" class="img-radius" alt="User-Profile-Image"> </div>
+                                        <div class="m-b-25"> <img src="{{ user.profile.image.url }}" class="img-radius img-fluid" alt="User-Profile-Image"> </div>
                                         <h6 class="f-w-600" style="font-size: 24px; color: black;"><!-- Add username here -->{{ user.username|title }}</h6>
                                         <p style="font-size: 14px; color: black;"><!-- Add bio here -->{{ user.profile.bio|title }}</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                         <div style="margin-top: 10px;">
-                                            <button class="btn btn-primary" id="logout-btn"><a id="fa" href="{% url 'profile_update' %}" style="color: white; text-decoration: none;">Update Profile</a></button>
+                                            <button class="btn btn-primary" id="logout-btn"><a id="fa" href="" style="color: white; text-decoration: none;">Update Profile</a></button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="card-block">
-                                        <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                        <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Profile Information</h6>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Email</p>
-                                                <h6 class="text-muted f-w-400"><!-- Add email here -->{{ user.email }}</h6>
+                                                <h6 class="text-muted f-w-400">{{ user.email }}</h6>
                                             </div>
                                             <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Phone</p>
-                                                <h6 class="text-muted f-w-400"><!-- Add phone here -->{{ user.profile.phone|title }}</h6>
+                                                <p class="m-b-10 f-w-600">Location</p>
+                                                <h6 class="text-muted f-w-400">{{ user.profile.city|title }}</h6>
                                             </div>
                                         </div>
                                         <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>

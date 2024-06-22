@@ -17,3 +17,8 @@ def register(request):
         form = UserRegisterForm()
 
     return render(request, 'soac_users/register.html', {'form': form})
+
+@login_required
+def profile(request):
+        return render(request, 'soac_users/profile.html')
+    
