@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponseBadRequest
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from .models import Question, Answer
@@ -11,6 +11,21 @@ from .forms import CommentForm
 def home(request):
     return render(request, 'home.html')
 
+@login_required
+def lik_view(request, pk):
+    """ A function that allows users to post likes """
+    if request.method == 'POST':
+        request = get_object_or_404(Question, pk=pk)
+        if request.user in question.likes.all():
+            question.likes.remove(request.user)
+            liked = False
+        else:
+            question.likes.add(request.user)
+            liked = True
+        return redirect('soac_base:question-detail', pk=pk)
+    else:
+        return HttpResponseBadRequest('Invalid request method.')
+
 class QuestionListView(ListView):
     """ A class that list the recent questions based on Time """
     model = Question
@@ -20,6 +35,18 @@ class QuestionListView(ListView):
 class QuestionDetailView(DetailView):
     """A class that url the question and readmore"""
     model = Question
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(QuestionDetailView, self).get_context_data()
+        something = get_object_or_404(Question, id=self.kwargs['pk'])
+        total_likes = something.total_likes()
+        liked = False
+        if something.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        context['total_likes'] = total_likes
+        context['liked'] = liked
+        return context
 
 class QuestionCreateView(LoginRequiredMixin, CreateView):
     """ A class that allows users to post questions """
