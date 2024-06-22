@@ -3,6 +3,7 @@ from django.http import HttpResponseBadRequest
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from .models import Question, Answer
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
 from .forms import CommentForm
 
@@ -12,7 +13,7 @@ def home(request):
     return render(request, 'home.html')
 
 @login_required
-def lik_view(request, pk):
+def like_view(request, pk):
     """ A function that allows users to post likes """
     if request.method == 'POST':
         request = get_object_or_404(Question, pk=pk)
