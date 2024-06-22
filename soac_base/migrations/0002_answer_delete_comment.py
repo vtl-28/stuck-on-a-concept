@@ -23,8 +23,14 @@ class Migration(migrations.Migration):
             ],
         """
         ),
+<<<<<<< HEAD
         migrations.DeleteModel(
             name='Comment',
         """
         ),
+=======
+       # migrations.DeleteModel(
+       #     name='Comment',
+        #),
+>>>>>>> ea297960173fadd140b862533dd62078ae21525b
     ]
