@@ -21,16 +21,5 @@ class Migration(migrations.Migration):
                 ('date_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='answer', to='soac_base.question')),
             ],
-        """
         ),
-<<<<<<< HEAD
-        migrations.DeleteModel(
-            name='Comment',
-        """
-        ),
-=======
-       # migrations.DeleteModel(
-       #     name='Comment',
-        #),
->>>>>>> ea297960173fadd140b862533dd62078ae21525b
     ]
