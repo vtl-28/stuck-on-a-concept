@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from soac_user import views as user_view
+from soac_users import views as user_view
 from django.contrib.auth import views as auth_view
 from django.conf import settings
 from django.conf.urls.static import static
@@ -24,6 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('soac_base.urls')),
+<<<<<<< HEAD
 
     path('register/', user_view.register, name="register"),
     path('login/', auth_view.LoginView.as_view(template_name="soac_user/login.html"), name='login'),
@@ -31,6 +32,15 @@ urlpatterns = [
 
     path('profile/', user_view.profile, name="profile"),
     path('profile/update/', user_view.profile_update, name="profile_update")
+=======
+    path('register/', user_view.register, name="register"),
+    path('login/', auth_view.LoginView.as_view(template_name="soac_users/login.html"), name='login'),
+    path('logout/', auth_view.LogoutView.as_view(template_name="soac_users/logout.html"), name='logout'), 
+
+    # Profile system
+    path('profile/', user_view.profile, name="profile"),
+    #path('profile/update/', user_view.profile_update, name="profile_update")
+>>>>>>> origin/master
 ]
 
 if settings.DEBUG:

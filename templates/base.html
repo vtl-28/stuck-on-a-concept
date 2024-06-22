@@ -16,11 +16,11 @@
             .bitten-rectangle {
                 height:120px; border-radius: 20px; background-color: #001848;
                 width: 180px;
-                height: 120px;       
+                height: 120px;
                 position: relative;
                 margin: -20px auto 0px auto;
             }
-    
+
             .bitten-rectangle::before {
                 content: '';
                 position: absolute;
@@ -73,7 +73,7 @@
                 border-radius: 50% 50% 0 0;
             }
             {% comment %} .landing_page {
-                margin-bottom: 100px; 
+                margin-bottom: 100px;
             }
             .half-oval {
                 position: absolute;
@@ -91,37 +91,12 @@
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-              <div class="d-flex justify-content-between" style="width: 19%;">
-                <img src="{% static 'images/WhatsApp Image 2024-06-12 at 9.47.36 PM.jpeg' %}" style="width: 17%; height: 17%; margin-top: 2px;">
-                <a class="navbar-brand" href="#" style="margin-right: 0px;">stuck-on-a-concept</a>
-              </div>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse ms-lg-5" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0 w-25 d-flex justify-content-between">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Q&A</a>
-                  </li>
-                </ul>
-                <form class="d-flex ms-lg-5 justify-content-between w-75">
-                  <input type="search" placeholder="Search" aria-label="Search" style="width: 65%;">
-                  <div class="d-flex justify-content-between w-25">
-                    <a class="btn" type="submit" style="color: #4472C4; border-color: #4472C4">Login</a>
-                    <a class="btn text-white" type="submit" style="background-color: #4472C4;">Sign up</a>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </nav>
+        {% block navbar %}
+
+        {% endblock navbar %}
+          {% block content %}
+
+        {% endblock content %}
           <section class="landing_page">
             <div class="py-5 carousel-container">
                 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -130,7 +105,7 @@
                         <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2" style="background-color: #007033"></button>
                         <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3" style="background-color: #007033"></button>
                         <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4" style="background-color: #007033"></button>
-                        
+
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item carousel-container d-flex justify-content-center">
@@ -172,10 +147,10 @@
           <section class="container  d-flex flex-column">
             <div class="py-5 d-flex flex-column align-items-center justify-content-between " style="height: 160px;">
                 <h6>A community of ALX software engineering learners</h6>
-                <h6 class="mb-0">A platform where the coding challenges of learners are addressed</h6>                
+                <h6 class="mb-0">A platform where the coding challenges of learners are addressed</h6>
             </div>
             <div class="py-5 d-flex flex-column align-items-center">
-                <h5 class="mb-4">Make the most out of Stuck-On-A-Concept</h5>    
+                <h5 class="mb-4">Make the most out of Stuck-On-A-Concept</h5>
                 <div class="row ">
                     <div class="d-flex col">
                         <img src="{% static 'images/knowledge sharing.png' %}" style="height: 100px; width: 100px;"/>
@@ -201,7 +176,7 @@
                             <p style="font-size: 13px;" class="text-center">FIND JOBS IN THE TECH INDUSTRY</p>
                         </div>
                     </div>
-                </div>           
+                </div>
             </div>
             <div class="py-5 d-flex flex-column align-items-center">
                 <h6>The Benefits Of Networking</h6>
@@ -261,69 +236,17 @@
                     <div class="col-3">
                         <img class="img-fluid" src="{% static "images/data science.jpg"%}" style="height: 112px;"/>
                     </div>
-    
+
                   </div>
             </div>
           </section>
-          <footer class="py-5 bg-dark">
-            <div class="container">
-                <div class="row">
-                    <div class="custom-col-5">
-                        <h6 class="text-white">STUCK-ON-A-CONCEPT</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white text-decoration-none">Questions</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Help</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Join</a></li>
-                        </ul>
-                    </div>
-                    <div class="custom-col-5">
-                        <h6 class="text-white">PRODUCTS</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white text-decoration-none">Teams</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Advertising</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Collectives</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Talent</a></li>
-                        </ul>
-                    </div>
-                    <div class="custom-col-5">
-                        <h6 class="text-white">COMPANY</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white text-decoration-none">About</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Press</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Work here</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Legal</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Privacy policy</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Contact us</a></li>
-                        </ul>
-                    </div>
-                    <div class="custom-col-5">
-                        <h6 class="text-white">EXCHANGE NETWORKS</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white text-decoration-none">Technology</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Life/Arts</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Culture</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Science</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Other</a></li>
-                        </ul>
-                    </div>
-                    <div class="custom-col-5">
-                        <ul class="list-unstyled d-flex w-100 justify-content-between">
-                            <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Facebook</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Twitter</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center align-items-center">
-                    <p style="margin: 3px 0px;" class="text-white">© 2024 Stuck-On-A-Concept contributions</p>
-                </div>
-            </div>
-
-          </footer>
+         {% block footer %}
+         
+         {% endblock footer %}
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>

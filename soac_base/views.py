@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from .models import Question, Answer
+from django.urls import reverse, reverse_lazy
+from .forms import CommentForm
 
 # Create your views here.
 
@@ -13,7 +15,7 @@ class QuestionListView(ListView):
     """ A class that list the recent questions based on Time """
     model = Question
     context_object_name = 'questions'
-    order = ['-date_created']
+    ordering = ['-date_create']
 
 class QuestionDetailView(DetailView):
     """A class that url the question and readmore"""
@@ -59,3 +61,27 @@ class QuestionDeleteView(PermissionRequiredMixin, LoginRequiredMixin, DeleteView
         """ A function that map the request with the delete permissions """
         question = self.get_object()
         return super().has_permission() and question.user == self.request.user
+
+class AnswerCreateView(CreateView):
+    """ A class that enable users to answer Questions """
+    model = Answer
+    form_class = CommentForm
+
+    template_name = 'soac_base/question-answer.html'
+
+    def form_valid(self, form):
+        form.instance.question_id = self.kwargs['pk']
+        return super().form_valid(form)
+    success_url = reverse_lazy('soac_base:question-lists')
+
+class AnswerDetailView(CreateView):
+    """ A class that shows the details of the answer """
+    model = Answer
+    form_class = CommentForm
+
+    templete_name = 'soac_base/question-detail.html'
+
+    def form_valid(self, form):
+        form.instamce.question_id = self.kwargs['pk']
+        return super().form_valid(form)
+    success_url = reverse_lazy('soac_base:question-detail')
