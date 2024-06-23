@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='answer', to='soac_base.question')),
             ],
         ),
-        migrations.DeleteModel(
-            name='Comment',
-        ),
+       # migrations.DeleteModel(
+       #     name='Comment',
+        #),
     ]
