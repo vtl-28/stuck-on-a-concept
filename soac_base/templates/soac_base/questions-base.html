@@ -30,6 +30,14 @@
           </button>
           <div class="collapse navbar-collapse ms-lg-5" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0 w-25 d-flex justify-content-between">
+              {% if user.is_authenticated%}
+              <li class="nav-item">
+                <a class="nav-link" href="#">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">For Teams</a>
+              </li>
+              {% else %}
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">About</a>
               </li>
@@ -39,6 +47,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Q&A</a>
               </li>
+              {% endif %}
             </ul>
             <form class="d-flex ms-lg-5 justify-content-between w-75">
               <input type="search" placeholder="Search" aria-label="Search" style="width: 65%;">
@@ -56,7 +65,7 @@
           </div>
         </div>
       </nav>
-      {% comment %} <div style="margin-top: 10px;">
+      <div style="margin-top: 10px;">
         {% if messages %}
         {% for message in messages %}
       <div class="alert alert-{{ message.tags }}" role="alert">
@@ -64,13 +73,14 @@
       </div>
       {% endfor %}
     {% endif %}
-    </div> {% endcomment %}
+    </div>
     {% comment %} {% if user.is_authenticated %}
     <p>logged in</p>
     {% else %}
     <p>logged out</p>
     {% endif %} {% endcomment %}
  </header>
+
  {% endblock navbar1 %}
 
  {% block question-list %}
@@ -80,6 +90,11 @@
  {% block content %}
 
  {% endblock content %}
+
+ {% block prof_update %}
+
+ {% endblock prof_update %}
+
 
 {% block footer1 %}
 <footer class="py-5 bg-dark">

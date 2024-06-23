@@ -35,3 +35,16 @@ class UserRegisterForm(UserCreationForm):
             profile = Profile(user=user, city=self.cleaned_data['city'])  # Save the city in Profile
             profile.save()
         return user
+
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+    
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['bio', 'city', 'image']

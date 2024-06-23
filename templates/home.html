@@ -4,7 +4,7 @@
 {% block navbar %}
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
         <div class="container">
           <div class="d-flex justify-content-between" style="width: 19%;">
             <img src="{% static 'images/WhatsApp Image 2024-06-12 at 9.47.36 PM.jpeg' %}" style="width: 17%; height: 17%; margin-top: 2px;">
@@ -15,6 +15,14 @@
           </button>
           <div class="collapse navbar-collapse ms-lg-5" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0 w-25 d-flex justify-content-between">
+              {% if user.is_authenticated%}
+              <li class="nav-item">
+                <a class="nav-link" href="#">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">For Teams</a>
+              </li>
+              {% else %}
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">About</a>
               </li>
@@ -24,10 +32,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Q&A</a>
               </li>
+              {% endif %}
             </ul>
-            <form class="d-flex ms-lg-5 justify-content-between w-75">
+            <form class="d-flex flex-sm-column flex-md-column flex-lg-row ms-lg-5 justify-content-between w-75">
               <input type="search" placeholder="Search" aria-label="Search" style="width: 65%;">
-              <div class="d-flex justify-content-between w-25">
+              <div class="d-flex justify-content-between w-25 sm: w-50">
                 {% if user.is_authenticated %}
                 <a href="{% url 'profile' %}" class="btn" type="submit" style="color: #4472C4; border-color: #4472C4">Profile</a>
                 <a href="{% url 'logout' %}" class="btn text-white" type="submit" style="background-color: #4472C4;">Logout</a>
@@ -50,11 +59,12 @@
       {% endfor %}
     {% endif %}
     </div>
-    {% if user.is_authenticated %}
+    
+    {% comment %} {% if user.is_authenticated %}
     <p>logged in</p>
     {% else %}
     <p>logged out</p>
-    {% endif %}
+    {% endif %} {% endcomment %}
  </header>
 
 {% endblock navbar %}

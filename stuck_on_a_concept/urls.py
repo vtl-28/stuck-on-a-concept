@@ -30,7 +30,7 @@ urlpatterns = [
 
     # Profile system
     path('profile/', user_view.profile, name="profile"),
-    #path('profile/update/', user_view.profile_update, name="profile_update")
+    path('profile/update/', user_view.profile_update, name="profile_update")
 ]
 
 if settings.DEBUG:
