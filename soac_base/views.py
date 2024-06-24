@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseBadRequest
+from django.http import HttpResponseBadRequest, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from .models import Question, Answer
@@ -15,17 +15,26 @@ def home(request):
 @login_required
 def like_view(request, pk):
     """ A function that allows users to post likes """
-    if request.method == 'POST':
-        request = get_object_or_404(Question, pk=pk)
-        if request.user in question.likes.all():
-            question.likes.remove(request.user)
-            liked = False
-        else:
-            question.likes.add(request.user)
-            liked = True
-        return redirect('soac_base:question-detail', pk=pk)
+    # if request.method == 'POST':
+    #     request = get_object_or_404(Question, pk=pk)
+    #     if request.user in question.likes.all():
+    #         question.likes.remove(request.user)
+    #         liked = False
+    #     else:
+    #         question.likes.add(request.user)
+    #         liked = True
+    #     return redirect('soac_base:question-detail', pk=pk)
+    # else:
+    #     return HttpResponseBadRequest('Invalid request method.')
+    post = get_object_or_404(Question, id=request.POST.get('question_id'))
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
     else:
-        return HttpResponseBadRequest('Invalid request method.')
+        post.likes.add(request.user)
+        liked = True
+    return HttpResponseRedirect(reverse('soac_base:question-detail', args=[str(pk)]))
 
 class QuestionListView(ListView):
     """ A class that list the recent questions based on Time """
@@ -101,14 +110,15 @@ class QuestionDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
     #     question = self.get_object()
     #     return super().has_permission() and question.user == self.request.user
 
-class AnswerCreateView(CreateView):
+class AnswerCreateView(LoginRequiredMixin,CreateView):
     """ A class that enable users to answer Questions """
     model = Answer
     form_class = CommentForm
+    context_object_name =  'question'
 
     template_name = 'soac_base/question-answer.html'
 
-    def form_validLogoutView(self, form):
+    def form_valid(self, form):
         form.instance.question_id = self.kwargs['pk']
         return super().form_valid(form)
     success_url = reverse_lazy('soac_base:question-lists')
@@ -121,6 +131,6 @@ class AnswerDetailView(CreateView):
     templete_name = 'soac_base/question-detail.html'
 
     def form_valid(self, form):
-        form.instamce.question_id = self.kwargs['pk']
+        form.instance.question_id = self.kwargs['pk']
         return super().form_valid(form)
     success_url = reverse_lazy('soac_base:question-detail')

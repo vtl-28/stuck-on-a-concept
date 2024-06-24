@@ -32,13 +32,16 @@ class Answer(models.Model):
     body = models.TextField(null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now)
 
+    class Meta:
+        ordering = ['-date_created']
+
     def __str__(self):
         """return the title of the question and it's user"""
         q_title = self.question.title
         q_user = self.question.user
         return f'{q_title} - {q_user}'
 
-    def get_success_url(self):
+    def get_absolute_url(self):
         """return url"""
         return reverse('soac_base:question-detail', kwargs={'pk':self.pk})
 
