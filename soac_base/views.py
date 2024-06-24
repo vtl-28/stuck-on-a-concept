@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseBadRequest
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from .models import Question, Answer
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
@@ -60,7 +60,7 @@ class QuestionCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class QuestionUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
+class QuestionUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
     """ A class that permits users to update their questions """
     model = Question
     fields = ['title', 'content']
@@ -70,25 +70,36 @@ class QuestionUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView
         """ function that validates the form"""
         form.instance.user = self.request.user
         return super().form_valid(form)
+    
+    def test_func(self):
+        questions = self.get_object()
+        if self.request.user == questions.user:
+            return True
+        return False
 
-    def has_permission(self):
-        """
-        A help function to map the request with the update permissions 
-        """
-        question = self.get_object()
-        return super().has_permission() and question.user == self.request.user
+    # def has_permission(self):
+    #     """
+    #     A help function to map the request with the update permissions 
+    #     """
+    #     question = self.get_object()
+    #     return super().has_permission() and question.user == self.request.user
 
-class QuestionDeleteView(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
+class QuestionDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
     """ An instance that permits the rightful user to delete their question """
     model = Question
     context_object_name = 'question'
-    permission_required = 'soa_base.delete_question'
-    successful_url = "/"
+    # permission_required = 'soa_base.delete_question'
+    success_url = "/questions"
 
-    def has_permission(self):
-        """ A function that map the request with the delete permissions """
-        question = self.get_object()
-        return super().has_permission() and question.user == self.request.user
+    def test_func(self):
+        questions = self.get_object()
+        if self.request.user == questions.user:
+            return True
+        return False
+    # def has_permission(self):
+    #     """ A function that map the request with the delete permissions """
+    #     question = self.get_object()
+    #     return super().has_permission() and question.user == self.request.user
 
 class AnswerCreateView(CreateView):
     """ A class that enable users to answer Questions """
@@ -97,7 +108,7 @@ class AnswerCreateView(CreateView):
 
     template_name = 'soac_base/question-answer.html'
 
-    def form_valid(self, form):
+    def form_validLogoutView(self, form):
         form.instance.question_id = self.kwargs['pk']
         return super().form_valid(form)
     success_url = reverse_lazy('soac_base:question-lists')

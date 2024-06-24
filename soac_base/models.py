@@ -17,9 +17,9 @@ class Question(models.Model):
         user_name = self.user.username
         return f'{user_name} - Question'
 
-    def get_url(self):
+    def get_absolute_url(self):
         """interconnect the question url"""
-        return reverse('soac_base: question-detail', kwargs={'pk':self.pk})
+        return reverse('soac_base:question-detail', kwargs={'pk':self.pk})
 
     def total_likes(self):
         """return a total likes on the relative question"""
