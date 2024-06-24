@@ -21,7 +21,7 @@ def register(request):
 @login_required
 def profile(request):
         return render(request, 'soac_users/profile.html')
-    
+
 
 @login_required
 def profile_update(request):
