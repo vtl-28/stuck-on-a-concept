@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseBadRequest
+from django.http import HttpResponseBadRequest, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from .models import Question, Answer
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
@@ -15,23 +15,40 @@ def home(request):
 @login_required
 def like_view(request, pk):
     """ A function that allows users to post likes """
-    if request.method == 'POST':
-        request = get_object_or_404(Question, pk=pk)
-        if request.user in question.likes.all():
-            question.likes.remove(request.user)
-            liked = False
-        else:
-            question.likes.add(request.user)
-            liked = True
-        return redirect('soac_base:question-detail', pk=pk)
+    # if request.method == 'POST':
+    #     request = get_object_or_404(Question, pk=pk)
+    #     if request.user in question.likes.all():
+    #         question.likes.remove(request.user)
+    #         liked = False
+    #     else:
+    #         question.likes.add(request.user)
+    #         liked = True
+    #     return redirect('soac_base:question-detail', pk=pk)
+    # else:
+    #     return HttpResponseBadRequest('Invalid request method.')
+    post = get_object_or_404(Question, id=request.POST.get('question_id'))
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
     else:
-        return HttpResponseBadRequest('Invalid request method.')
+        post.likes.add(request.user)
+        liked = True
+    return HttpResponseRedirect(reverse('soac_base:question-detail', args=[str(pk)]))
 
 class QuestionListView(ListView):
     """ A class that list the recent questions based on Time """
     model = Question
     context_object_name = 'questions'
     ordering = ['-date_create']
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        search_input = self.request.GET.get('search-area') or ""
+        if search_input:
+            context['questions'] = context['questions'].filter(title__icontains = search_input)
+            context['search_input'] = search_input
+        return context
 
 class QuestionDetailView(DetailView):
     """A class that url the question and readmore"""
@@ -60,7 +77,7 @@ class QuestionCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class QuestionUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
+class QuestionUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
     """ A class that permits users to update their questions """
     model = Question
     fields = ['title', 'content']
@@ -71,29 +88,41 @@ class QuestionUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-    def has_permission(self):
-        """
-        A help function to map the request with the update permissions 
-        """
-        question = self.get_object()
-        return super().has_permission() and question.user == self.request.user
+    def test_func(self):
+        questions = self.get_object()
+        if self.request.user == questions.user:
+            return True
+        return False
 
-class QuestionDeleteView(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
+    # def has_permission(self):
+    #     """
+    #     A help function to map the request with the update permissions
+    #     """
+    #     question = self.get_object()
+    #     return super().has_permission() and question.user == self.request.user
+
+class QuestionDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
     """ An instance that permits the rightful user to delete their question """
     model = Question
     context_object_name = 'question'
-    permission_required = 'soa_base.delete_question'
-    successful_url = "/"
+    # permission_required = 'soa_base.delete_question'
+    success_url = "/questions"
 
-    def has_permission(self):
-        """ A function that map the request with the delete permissions """
-        question = self.get_object()
-        return super().has_permission() and question.user == self.request.user
+    def test_func(self):
+        questions = self.get_object()
+        if self.request.user == questions.user:
+            return True
+        return False
+    # def has_permission(self):
+    #     """ A function that map the request with the delete permissions """
+    #     question = self.get_object()
+    #     return super().has_permission() and question.user == self.request.user
 
-class AnswerCreateView(CreateView):
+class AnswerCreateView(LoginRequiredMixin,CreateView):
     """ A class that enable users to answer Questions """
     model = Answer
     form_class = CommentForm
+    context_object_name =  'question'
 
     template_name = 'soac_base/question-answer.html'
 
@@ -110,6 +139,6 @@ class AnswerDetailView(CreateView):
     templete_name = 'soac_base/question-detail.html'
 
     def form_valid(self, form):
-        form.instamce.question_id = self.kwargs['pk']
+        form.instance.question_id = self.kwargs['pk']
         return super().form_valid(form)
     success_url = reverse_lazy('soac_base:question-detail')

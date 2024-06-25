@@ -2,13 +2,14 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
-#from ckeditor.fields import RichTextField
+from ckeditor.fields import RichTextField
 
 class Question(models.Model):
     """Question model map"""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=10000)
-    content = models.TextField(null=True, blank=True)
+    # content = models.TextField(null=True, blank=True)
+    content = RichTextField()
     likes = models.ManyToManyField(User, related_name='question_post')
     date_create = models.DateTimeField(default=timezone.now)
 
@@ -17,9 +18,9 @@ class Question(models.Model):
         user_name = self.user.username
         return f'{user_name} - Question'
 
-    def get_url(self):
+    def get_absolute_url(self):
         """interconnect the question url"""
-        return reverse('soac_base: question-detail', kwargs={'pk':self.pk})
+        return reverse('soac_base:question-detail', kwargs={'pk':self.pk})
 
     def total_likes(self):
         """return a total likes on the relative question"""
@@ -29,8 +30,12 @@ class Answer(models.Model):
     """Question model map relative to Question"""
     question = models.ForeignKey(Question, related_name="answer", on_delete=models.CASCADE)
     name = models.CharField(max_length=1000)
-    body = models.TextField(null=True, blank=True)
+    # body = models.TextField(null=True, blank=True)
+    body = RichTextField()
     date_created = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ['-date_created']
 
     def __str__(self):
         """return the title of the question and it's user"""
@@ -38,7 +43,7 @@ class Answer(models.Model):
         q_user = self.question.user
         return f'{q_title} - {q_user}'
 
-    def get_success_url(self):
+    def get_absolute_url(self):
         """return url"""
         return reverse('soac_base:question-detail', kwargs={'pk':self.pk})
 
