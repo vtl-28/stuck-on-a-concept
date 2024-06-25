@@ -49,19 +49,20 @@
               </li>
               {% endif %}
             </ul>
-            <form class="d-flex ms-lg-5 justify-content-between w-75">
-              <input type="search" placeholder="Search" aria-label="Search" style="width: 65%;">
-              <div class="d-flex justify-content-between w-25">
-                {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}" class="btn" type="submit" style="color: #4472C4; border-color: #4472C4">Profile</a>
-                <a href="{% url 'logout' %}" class="btn text-white" type="submit" style="background-color: #4472C4;">Logout</a>
-            {% else %}
-            <a href="{% url 'login' %}" class="btn" type="submit" style="color: #4472C4; border-color: #4472C4">Login</a>
-            <a href="{% url 'register' %}" class="btn text-white" type="submit" style="background-color: #4472C4;">Sign up</a>
-            {% endif %}
-
-              </div>
+            <form class="d-flex ms-lg-5 justify-content-between w-75" method="GET">
+              <input type="search" placeholder="Search..." aria-label="Search" style="width: 65%;" name="search-area">
+              <button type="submit" style="margin-left: 340px; border-radius: 25px; border: none; padding: 8px;">Search</button>
             </form>
+            <div class="d-flex justify-content-between w-25">
+              {% if user.is_authenticated %}
+              <a href="{% url 'profile' %}" class="btn" type="submit" style="color: #4472C4; border-color: #4472C4">Profile</a>
+              <a href="{% url 'logout' %}" class="btn text-white" type="submit" style="background-color: #4472C4;">Logout</a>
+          {% else %}
+          <a href="{% url 'login' %}" class="btn" type="submit" style="color: #4472C4; border-color: #4472C4">Login</a>
+          <a href="{% url 'register' %}" class="btn text-white" type="submit" style="background-color: #4472C4;">Sign up</a>
+          {% endif %}
+
+            </div>
           </div>
         </div>
       </nav>

@@ -2,13 +2,14 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
-#from ckeditor.fields import RichTextField
+from ckeditor.fields import RichTextField
 
 class Question(models.Model):
     """Question model map"""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=10000)
-    content = models.TextField(null=True, blank=True)
+    # content = models.TextField(null=True, blank=True)
+    content = RichTextField()
     likes = models.ManyToManyField(User, related_name='question_post')
     date_create = models.DateTimeField(default=timezone.now)
 
@@ -29,7 +30,8 @@ class Answer(models.Model):
     """Question model map relative to Question"""
     question = models.ForeignKey(Question, related_name="answer", on_delete=models.CASCADE)
     name = models.CharField(max_length=1000)
-    body = models.TextField(null=True, blank=True)
+    # body = models.TextField(null=True, blank=True)
+    body = RichTextField()
     date_created = models.DateTimeField(default=timezone.now)
 
     class Meta:
