@@ -47,8 +47,9 @@
         }
 
         .bg-c-lite-green {
-            background: -webkit-gradient(linear, left top, right top, from(#001848), to(#001848));
-            background: linear-gradient(to right, rgb(0, 24, 72), blue)
+            {% comment %} background: -webkit-gradient(linear, left top, right top, from(#001848), to(#001848));
+            background: linear-gradient(to right, rgb(0, 24, 72), blue) {% endcomment %}
+            background-color: #001848;
         }
 
         .user-profile {
@@ -196,7 +197,7 @@
                                                 <h6 class="text-muted f-w-400"><a href="#">Project2</a></h6>
                                             </div>
                                             <div style="margin-top: 55px;">
-                                                <button class="btn btn-secondary" id="logout-btn"><a id="fa" href="#" style="color: white; text-decoration: none;">Ask Question</a></button>
+                                                <button class="btn btn-secondary" id="logout-btn"><a id="fa" href="{% url 'soac_base:question-create' %}" style="color: white; text-decoration: none;">Ask Question</a></button>
                                                 <button class="btn btn-outline-primary" id="logout-btn"><a id="fa" href="{% url 'soac_base:question-lists' %}" style="color: rgb(0, 0, 0); text-decoration: none;">View Questions</a></button>
                                             </div>
                                         </div>

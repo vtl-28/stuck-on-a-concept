@@ -50,14 +50,25 @@
           </div>
         </div>
       </nav>
-      <div style="margin-top: 10px;">
+      {% if messages %}
+      <div id="message_container">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}" role="alert">
+            <h4 style="text-align: center;">{{ message }}</h4>
+          </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% comment %} <div style="margin-top: 10px;">
         {% if messages %}
         {% for message in messages %}
       <div class="alert alert-{{ message.tags }}" role="alert">
         <h4 style="text-align: center;">{{ message }}</h4>
       </div>
       {% endfor %}
-    {% endif %}
+    {% endif %} {% endcomment %}
+
     </div>
     
     {% comment %} {% if user.is_authenticated %}
@@ -71,58 +82,58 @@
 
 {% block footer %}
 <footer class="py-5 bg-dark">
-    <div class="container">
-        <div class="row">
-            <div class="custom-col-5">
-                <h6 class="text-white">STUCK-ON-A-CONCEPT</h6>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white text-decoration-none">Questions</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Help</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Join</a></li>
-                </ul>
-            </div>
-            <div class="custom-col-5">
-                <h6 class="text-white">PRODUCTS</h6>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white text-decoration-none">Teams</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Advertising</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Collectives</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Talent</a></li>
-                </ul>
-            </div>
-            <div class="custom-col-5">
-                <h6 class="text-white">COMPANY</h6>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white text-decoration-none">About</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Press</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Work here</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Legal</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Privacy policy</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Contact us</a></li>
-                </ul>
-            </div>
-            <div class="custom-col-5">
-                <h6 class="text-white">EXCHANGE NETWORKS</h6>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white text-decoration-none">Technology</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Life/Arts</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Culture</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Science</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Other</a></li>
-                </ul>
-            </div>
-            <div class="custom-col-5">
-                <ul class="list-unstyled d-flex w-100 justify-content-between">
-                    <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Facebook</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Twitter</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="d-flex justify-content-center align-items-center">
-            <p style="margin: 3px 0px;" class="text-white">© 2024 Stuck-On-A-Concept contributions</p>
-        </div>
-    </div>
+  <div class="container">
+      <div class="row">
+          <div class="custom-col-5">
+              <h6 class="text-white footer_title">STUCK-ON-A-CONCEPT</h6>
+              <ul class="list-unstyled">
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Questions</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item" >Help</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Join</a></li>
+              </ul>
+          </div>
+          <div class="custom-col-5">
+              <h6 class="text-white footer_title">PRODUCTS</h6>
+              <ul class="list-unstyled">
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Teams</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Advertising</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Collectives</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Talent</a></li>
+              </ul>
+          </div>
+          <div class="custom-col-5">
+              <h6 class="text-white footer_title">COMPANY</h6>
+              <ul class="list-unstyled">
+                  <li><a href="#" class="text-white text-decoration-none footer_item">About</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Press</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Work here</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Legal</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item" >Privacy policy</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Contact us</a></li>
+              </ul>
+          </div>
+          <div class="custom-col-5">
+              <h6 class="text-white footer_title">EXCHANGE NETWORKS</h6>
+              <ul class="list-unstyled">
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Technology</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item ">Life/Arts</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Culture</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Science</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Other</a></li>
+              </ul>
+          </div>
+          <div class="custom-col-5">
+              <ul class="list-unstyled w-100 social_links">
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Blog</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Facebook</a></li>
+                  <li><a href="#" class="text-white text-decoration-none footer_item">Twitter</a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+          <p style="margin: 3px 0px;" class="text-white">© 2024 Stuck-On-A-Concept contributions</p>
+      </div>
+  </div>
 
-  </footer>
+</footer
 {% endblock footer %}
