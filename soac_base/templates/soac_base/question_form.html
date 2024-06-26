@@ -69,6 +69,15 @@
         .img-radius {
             border-radius: 100px
         }
+        #question_btns {
+            width: 50%;
+        }
+        @media only screen and (min-width: 492px) {
+            #question_btns {
+                width: 75%;
+            }
+        }
+
         @media only screen and (min-width: 1400px) {
             .img-radius {
             border-radius: 100px
@@ -187,7 +196,7 @@
                                                 {% csrf_token %}
                                                 {{form|crispy}}
                                                 {{ form.media }}
-                                               <div class="m-t-40 d-flex w-50 justify-content-between">
+                                               <div class="m-t-40 d-flex justify-content-between" id="question_btns">
                                                 <button class="btn btn-success" id="logout-btn" type="submit">Post Question</button>
                                                 <a style="background-color: #C00000;" class="btn text-white" href="{% url 'soac_base:question-lists' %}">Cancel</a>
                                                </div>

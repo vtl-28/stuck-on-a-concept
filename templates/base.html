@@ -46,7 +46,12 @@
                 box-shadow: 0 0 0 0rem;
                 outline: 0rem;
                 
-            } 
+            }
+            #message_container {
+                margin-top: 10px;
+                display: flex;
+                justify-content: center;
+            }
             .bitten-rectangle {
                 height:120px; border-radius: 20px; background-color: #001848;
                 width: 180px;
@@ -106,6 +111,50 @@
                 background: #007bff;
                 border-radius: 50% 50% 0 0;
             }
+
+            .social_links {
+                display: flex;
+                justify-content: space-between
+              }
+              
+              @media screen and (min-width: 492px) {
+                .footer_title {
+                    font-size: 11px;
+                }
+                .footer_item {
+                  font-size: 11px;
+                }
+                .social_links {
+                  flex-direction: column;
+                }
+        
+            }
+
+            @media screen and (min-width: 576px) {
+                .footer_title {
+                    font-size: 13px;
+                }
+                .footer_item {
+                  font-size: 13px;
+                }
+        
+            }
+            @media screen and (min-width: 768px) {
+                .social_links {
+                    flex-direction: row;
+                    justify-content: space-between
+                }
+        
+            }
+            @media screen and (min-width: 992px) {
+              .footer_title {
+                  font-size: 16px;
+              }
+              .footer_item {
+                font-size: 16px;
+              }
+      
+          }
             {% comment %} .landing_page {
                 margin-bottom: 100px;
             }
@@ -148,8 +197,10 @@
                 }
             }
             @media screen and (min-width: 992px) {
-                #nav_logo{
-                    margin-top: 5px;
+                #nav_logo {
+                    width: 13%; 
+                    height: 13%; 
+                    margin-top: 8px;
                 }
 
                 #nav_btns{
@@ -162,7 +213,7 @@
 
             @media screen and (min-width: 1200px) {
                 #nav_logo_div{
-                    width: 19%;
+                    width: 18%;
                 }
             }
         </style>
@@ -221,11 +272,13 @@
                 </div>
             </div>
           </section>
-          <section class="container  d-flex flex-column">
+          <section style="background-color: #4472C4;">
             <div class="py-5 d-flex flex-column align-items-center justify-content-between " style="height: 160px;">
-                <h6>A community of ALX software engineering learners</h6>
-                <h6 class="mb-0 text-center">A platform where the coding challenges of learners are addressed</h6>
+                <h6 class="text-white">A community of ALX software engineering learners</h6>
+                <h6 class="text-white mb-0 text-center">A platform where the coding challenges of learners are addressed</h6>
             </div>
+          </section>
+          <section class="container  d-flex flex-column">
             <div class="py-5 d-flex flex-column align-items-center">
                 <h5 class="mb-4">Make the most out of Stuck-On-A-Concept</h5>
                 <div class="row ">
