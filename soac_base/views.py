@@ -87,7 +87,7 @@ class QuestionUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
         """ function that validates the form"""
         form.instance.user = self.request.user
         return super().form_valid(form)
-    
+
     def test_func(self):
         questions = self.get_object()
         if self.request.user == questions.user:
@@ -96,7 +96,7 @@ class QuestionUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
 
     # def has_permission(self):
     #     """
-    #     A help function to map the request with the update permissions 
+    #     A help function to map the request with the update permissions
     #     """
     #     question = self.get_object()
     #     return super().has_permission() and question.user == self.request.user
