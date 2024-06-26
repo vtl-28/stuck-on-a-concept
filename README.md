@@ -35,18 +35,11 @@
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
 
-This project is intended to solve a problem faced by SE students enrolled in
-the ALX SE programme. The problem is that a lot of students enrolled in the
-SE programme are new to programming and often have a difficult time getting
-support to complete the difficult projects and tasks assigned to the students.
-And as a result, unfortunately, drop out of the programme. This project will
-give struggling SE students the support they need to complete projects and
-tasks by allowing them to post about coding challenges they facing in order to
-seek help solving them, and by also searching for answers to problems they
-are facing that maybe other students have also faced and managed to solve
+This project aims to address a problem faced by students enrolled in the ALX SE program. Many new programming students struggle to find support for completing the challenging projects and tasks assigned to them. This often leads to frustration and, unfortunately, dropping out of the program.
 
-- What the Portfolio Project will not solve: This project will not reduce the staggering number of students failing to
-complete this programme
+This project provides SE students with the support they need to complete their projects and tasks. It allows them to post about the coding challenges they are facing to seek help and to search for solutions to problems that other students may have encountered and solved.
+
+- What the Portfolio Project will not solve: This project will not address the high number of students failing to complete the program. While it aims to provide support and resources for students facing challenges, it does not guarantee a reduction in the overall dropout rate.
 - Who the Portfolio Project will help and/or who the users will be: This project will help students enrolled in the ALX SE programme
 
           RISK
@@ -68,11 +61,7 @@ Prototype
 ```
 - [Stuck-on-A-Concept](https://www.figma.com/proto/AoFkvZ2hfecZfMPz2Z7wi0/Stuck-on-A-Concept?node-id=0-1&t=EQu1Vv9UsACEM3Ga-1)
 
-As a student of the ALX software engineering program, I want to be able to seek
-for help on a coding challenge I am facing by searching for similar coding
-challenges that have been solved before by someone else, so that I can get an
-idea of how to solve the coding challenge I am faced with on a project I am
-working on
+As a student of the ALX software engineering program, I want to seek help with a coding challenge I am facing by searching for similar challenges that have been previously solved by others. This way, I can get ideas and guidance on how to address the coding challenge in my current project.
 
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
