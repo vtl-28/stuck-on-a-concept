@@ -23,7 +23,7 @@
 ## 📝 Table of Contents
 
 - [Problem Statement](#problem_statement)
-- [User Story](#User_Story)
+- [Idea / User Story](#Idea)
 - [Future Scope](#future_scope)
 - [Setting up a local environment](#getting_started)
 - [Usage](#usage)
@@ -61,13 +61,19 @@ using another programming language for the entire project.
 Data compliance securities and certification will be needed to enhance data
 protection.
 
-## 💡 User Story <a name = "User_Story"></a>
+## 💡 Idea / User Story <a name = "Idea"></a>
+
+```
+Prototype
+```
+- [Stuck-on-A-Concept](https://www.figma.com/proto/AoFkvZ2hfecZfMPz2Z7wi0/Stuck-on-A-Concept?node-id=0-1&t=EQu1Vv9UsACEM3Ga-1)
 
 As a student of the ALX software engineering program, I want to be able to seek
 for help on a coding challenge I am facing by searching for similar coding
 challenges that have been solved before by someone else, so that I can get an
 idea of how to solve the coding challenge I am faced with on a project I am
 working on
+
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
 
