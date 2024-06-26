@@ -39,7 +39,7 @@ This project aims to address a problem faced by students enrolled in the ALX SE 
 
 This project provides SE students with the support they need to complete their projects and tasks. It allows them to post about the coding challenges they are facing to seek help and to search for solutions to problems that other students may have encountered and solved.
 
-- What the Portfolio Project will not solve: This project will not address the high number of students failing to complete the program. While it aims to provide support and resources for students facing challenges, it does not guarantee a reduction in the overall dropout rate.
+- What the Portfolio Project will not solve: This project does not focus on motivational factors or laziness. Instead, it aims to establish a supportive educational environment that encourages dedicated students to embrace creativity and agile growth
 - Who the Portfolio Project will help and/or who the users will be: This project will help students enrolled in the ALX SE programme
 
           RISK
