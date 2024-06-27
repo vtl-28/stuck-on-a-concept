@@ -87,7 +87,7 @@
                     <h6 id="fh6">{{ question.content|safe }}</h6>
                     <hr>
                     <div class="d-flex w-100 flex-row-reverse justify-content-between">
-                        <h6 id="fh6" style="font-size: 10px; font-style: italic; color: #00000; text-align: right;">Asked By: <a href="{% url 'profile' %}">{{ object.user|title }}</a>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; On: {{ object.date_create|date:"j F, Y" }}</h6>
+                        <h6 id="fh6" style="font-size: 10px; font-style: italic; color: #00000; text-align: right;">Asked By: <a href="{% url 'profile' %}" class="text-decoration-none">{{ object.user|title }} from {{ question.user.profile.city }} </a>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; On: {{ object.date_create|date:"j F, Y" }}</h6>
                         <br>
                             <form action="{% url 'soac_base:like_post' object.pk %}" method="POST">
                                 {% csrf_token %}
@@ -111,11 +111,11 @@
                     <h2>Answers...</h2> <br><br><br>
 
                     {% if not question.answer.all %}
-                        <h3>No Answers yet... <a href="">Answer Question</a> </h3>
+                        <h3>No Answers yet... <a href="" class="text-decoration-none">Answer Question</a> </h3>
                     {% else %}
                         {% for answer in question.answer.all %}
                             <h3 style="font-weight: normal; font-size: 15px;">{{answer.body|safe}}</h3>
-                            <h3 style="font-size: 10px;">Answered by: <i><a href="">{{answer.name}}</a> - On: {{answer.date_created|date:"j F, Y"}}</i></h3>
+                            <h3 style="font-size: 10px;">Answered by: <i><a href="" class="text-decoration-none">{{answer.name}} from {{ question.user.profile.city }} </a> - On: {{answer.date_created|date:"j F, Y"}}</i></h3>
                             <hr>  
                         {% endfor %}
                     {% endif %}
@@ -124,9 +124,9 @@
                     
                     
                     <a class="btn btn-outline-primary" id="fa" href="{% url 'soac_base:question-answer' question.id %}" style="text-decoration: none;">Answer Question</a>
-                    <a style="text-decoration: none; " class="btn btn-outline-success" href="{% url 'soac_base:question-update' question.id %}">&#x270E;</a>
-                    <a style="text-decoration: none; " class="btn btn-outline-danger" href="{% url 'soac_base:question-delete' question.id %}">&#x2716;</a>
-                    <a style="text-decoration: none; " class="btn btn-outline-secondary" href="{% url 'soac_base:question-lists' %}">&#x21a9;</a>
+                    <a style="text-decoration: none; " class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit Question" href="{% url 'soac_base:question-update' question.id %}">&#x270E;</a>
+                    <a style="text-decoration: none; " class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete Question" href="{% url 'soac_base:question-delete' question.id %}">&#x2716;</a>
+                    <a style="text-decoration: none; " class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Go Back" href="{% url 'soac_base:question-lists' %}">&#x21a9;</a>
                 </div> <br><br>
                 
                 </div> <br>

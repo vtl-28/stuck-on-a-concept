@@ -59,13 +59,16 @@ Prototype
 
 As a student of the ALX software engineering program, I want to seek help with a coding challenge I am facing by searching for similar challenges that have been previously solved by others. This way, I can get ideas and guidance on how to address the coding challenge in my current project.
 
-##    Live Demo / Recorded Virsual 
+##    Live Demo / Recorded Virsual
 
 - [Stuck-on-a-Concept#Live](https://stuckonaconcept.pythonanywhere.com)
 
 ```
 VIDEO
 ```
+
+[soac-recording.webm](https://github.com/vtl-28/stuck-on-a-concept/assets/73833164/627b3fc6-be3d-4c7d-a0ce-982e4757aae0)
+
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
 
