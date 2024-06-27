@@ -39,7 +39,7 @@ This project aims to address a problem faced by students enrolled in the ALX SE 
 This project provides SE students with the support they need to complete their projects and tasks. It allows them to post about the coding challenges they are facing to seek help and to search for solutions to problems that other students may have encountered and solved.
 
 
-          RISK
+### RISK
 
 - Technical risks: Technology to be used for this project may not be suitable for the project later
 when it is scaled up.
@@ -53,9 +53,8 @@ protection.
 
 ## 💡 Idea / User Story <a name = "Idea"></a>
 
-```
-Prototype
-```
+### Prototype
+
 - [Stuck-on-A-Concept#Figma](https://www.figma.com/proto/AoFkvZ2hfecZfMPz2Z7wi0/Stuck-on-A-Concept?node-id=0-1&t=EQu1Vv9UsACEM3Ga-1)
 
 As a student of the ALX software engineering program, I want to seek help with a coding challenge I am facing by searching for similar challenges that have been previously solved by others. This way, I can get ideas and guidance on how to address the coding challenge in my current project.
@@ -64,9 +63,7 @@ As a student of the ALX software engineering program, I want to seek help with a
 
 - [Stuck-on-a-Concept#Live](https://stuckonaconcept.pythonanywhere.com)
 
-```
-VIDEO
-```
+### VIDEO
 
 [soac-recording.webm](https://github.com/vtl-28/stuck-on-a-concept/assets/73833164/627b3fc6-be3d-4c7d-a0ce-982e4757aae0)
 
