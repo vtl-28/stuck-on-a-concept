@@ -24,13 +24,12 @@
 
 - [Problem Statement](#problem_statement)
 - [Idea / User Story](#Idea)
+- [LiveDemo / Recorded Virsual](#LiveDemo)
 - [Future Scope](#future_scope)
 - [Setting up a local environment](#getting_started)
 - [Usage](#usage)
 - [Technology Stack](#tech_stack)
-- [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
-- [Prototype](#prototype)
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
 
@@ -56,10 +55,17 @@ protection.
 ```
 Prototype
 ```
-- [Stuck-on-A-Concept](https://www.figma.com/proto/AoFkvZ2hfecZfMPz2Z7wi0/Stuck-on-A-Concept?node-id=0-1&t=EQu1Vv9UsACEM3Ga-1)
+- [Stuck-on-A-Concept#Figma](https://www.figma.com/proto/AoFkvZ2hfecZfMPz2Z7wi0/Stuck-on-A-Concept?node-id=0-1&t=EQu1Vv9UsACEM3Ga-1)
 
 As a student of the ALX software engineering program, I want to seek help with a coding challenge I am facing by searching for similar challenges that have been previously solved by others. This way, I can get ideas and guidance on how to address the coding challenge in my current project.
 
+##    Live Demo / Recorded Virsual 
+
+- [Stuck-on-a-Concept#Live](https://stuckonaconcept.pythonanywhere.com)
+
+```
+VIDEO
+```
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
 
