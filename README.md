@@ -31,7 +31,6 @@
 - [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 - [Prototype](#prototype)
-- [Acknowledgments](#acknowledgments)
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
 
@@ -39,8 +38,6 @@ This project aims to address a problem faced by students enrolled in the ALX SE 
 
 This project provides SE students with the support they need to complete their projects and tasks. It allows them to post about the coding challenges they are facing to seek help and to search for solutions to problems that other students may have encountered and solved.
 
-- What the Portfolio Project will not solve: This project does not focus on motivational factors or laziness. Instead, it aims to establish a supportive educational environment that encourages dedicated students to embrace creativity and agile growth
-- Who the Portfolio Project will help and/or who the users will be: This project will help students enrolled in the ALX SE programme
 
           RISK
 
@@ -105,7 +102,12 @@ pip install django-ckeditor
 
 ## 🎈 Usage <a name="usage"></a>
 
-Add notes about how to use the system
+```
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+```
 
 ## ⛏️ Built With <a name = "tech_stack"></a>
 
@@ -118,11 +120,6 @@ Add notes about how to use the system
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@Vuyisile Tlotliso Lehola](https://github.com/vtl-28) - UI and Deploying
-- [@Comfort Shingange](https://github.com/Comfort99/) - Codebase Model
-- [@Sadik Adams](https://github.com/PoisebTechHub) - Profile model
-
-## 🎉 Acknowledgments <a name = "acknowledgments"></a>
-
-- Stack overflow
-- Destiny Franks
+- [@Vuyisile Tlotliso Lehola](https://github.com/vtl-28)
+- [@Comfort Shingange](https://github.com/Comfort99/)
+- [@Sadik Adams](https://github.com/PoisebTechHub)
