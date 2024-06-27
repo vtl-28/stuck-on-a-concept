@@ -79,11 +79,12 @@ VIDEO
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
 
-- Track users' contribution on the platform and offer rewards to the highest contributors
+- Track users' contributions on the platform and offer rewards to the highest contributors
 - Enforce rules of engagement on the platform
 - Allow students from other programs to have access to the web app
 - Live sessions between the author of the question, and the person offering the help
 - Adding roles and role-based access on the platform for mentors and students
+- PLD sessions for teams
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -91,14 +92,12 @@ Using Django’s built-in development server, we will populate our app with data
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+What you need to install the software and how to install them.
 
 ```
 Python
-enviroment server
 Django
 pillow
-sqlite3
 Django-crispy-forms
 crispy-bootstrap4
 Django-ckeditor
