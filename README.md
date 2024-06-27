@@ -25,6 +25,7 @@
 - [Problem Statement](#problem_statement)
 - [Idea / User Story](#Idea)
 - [LiveDemo / Recorded Virsual](#LiveDemo)
+- [Featires](#Features)
 - [Future Scope](#future_scope)
 - [Setting up a local environment](#getting_started)
 - [Usage](#usage)
@@ -69,11 +70,20 @@ VIDEO
 
 [soac-recording.webm](https://github.com/vtl-28/stuck-on-a-concept/assets/73833164/627b3fc6-be3d-4c7d-a0ce-982e4757aae0)
 
+##    Features
+- Search for answers to a coding challenge
+- Seek answers to a coding challenge by posting or writing about it
+- Help other users get help to coding challenges by commenting on their posts
+- Give feedback to a proposed answer in the comment section by liking of disliking a comment
+- Update user profile information
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
 
-Write about what you could not develop during the course of the Hackathon; and about what your project can achieve
-in the future.
+- Track users' contribution on the platform and offer rewards to the highest contributors
+- Enforce rules of engagement on the platform
+- Allow students from other programs to have access to the web app
+- Live sessions between the author of the question, and the person offering the help
+- Adding roles and role-based access on the platform for mentors and students
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
