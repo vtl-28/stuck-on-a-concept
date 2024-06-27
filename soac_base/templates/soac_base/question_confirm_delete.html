@@ -90,8 +90,8 @@
 <body>
     <form action="" method="POST" class="my-5">
         {% csrf_token %}
-        <div class="container" style="background-color: blanchedalmond; height: 200px; " >
-            <h2 style="text-align: center; padding-top: 35px; font-family: 'Poppins', sans-serif;">Do you wanna delete this question? <b>{{ question.title }}</b></h2>
+        <div class="container border rounded bg-light" style="height: 200px; " >
+            <h2 style="text-align: center; padding-top: 35px; font-family: 'Poppins', sans-serif; color: black;">Do you wanna delete this question? <b>{{ question.title }}</b></h2>
             <div class="container11">
                 <!-- <button class="btn btn-outline-danger" type="submit" style="font-family: 'Poppins', sans-serif;"><a href="" class="btn btn-outline-danger" style="text-decoration: none;">Delete</a></button> -->
                 <button class="btn btn-outline-danger" type="submit" style="font-family: 'Poppins', sans-serif;">Delete</button>
