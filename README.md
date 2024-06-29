@@ -24,13 +24,13 @@
 
 - [Problem Statement](#problem_statement)
 - [Idea / User Story](#Idea)
+- [LiveDemo / Recorded Virsual](#LiveDemo)
+- [Featires](#Features)
 - [Future Scope](#future_scope)
 - [Setting up a local environment](#getting_started)
 - [Usage](#usage)
 - [Technology Stack](#tech_stack)
-- [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
-- [Prototype](#prototype)
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
 
@@ -39,7 +39,7 @@ This project aims to address a problem faced by students enrolled in the ALX SE 
 This project provides SE students with the support they need to complete their projects and tasks. It allows them to post about the coding challenges they are facing to seek help and to search for solutions to problems that other students may have encountered and solved.
 
 
-          RISK
+### RISK
 
 - Technical risks: Technology to be used for this project may not be suitable for the project later
 when it is scaled up.
@@ -53,18 +53,35 @@ protection.
 
 ## 💡 Idea / User Story <a name = "Idea"></a>
 
-```
-Prototype
-```
-- [Stuck-on-A-Concept](https://www.figma.com/proto/AoFkvZ2hfecZfMPz2Z7wi0/Stuck-on-A-Concept?node-id=0-1&t=EQu1Vv9UsACEM3Ga-1)
+### Prototype
+
+- [Stuck-on-A-Concept#Figma](https://www.figma.com/proto/AoFkvZ2hfecZfMPz2Z7wi0/Stuck-on-A-Concept?node-id=0-1&t=EQu1Vv9UsACEM3Ga-1)
 
 As a student of the ALX software engineering program, I want to seek help with a coding challenge I am facing by searching for similar challenges that have been previously solved by others. This way, I can get ideas and guidance on how to address the coding challenge in my current project.
 
+##    Live Demo / Recorded Virsual
+
+- [Stuck-on-a-Concept#Live](https://stuckonaconcept.pythonanywhere.com)
+
+### VIDEO
+
+[soac-recording.webm](https://github.com/vtl-28/stuck-on-a-concept/assets/73833164/627b3fc6-be3d-4c7d-a0ce-982e4757aae0)
+
+##    Features
+- Search for answers to a coding challenge
+- Seek answers to a coding challenge by posting or writing about it
+- Help other users get help to coding challenges by commenting on their posts
+- Give feedback to a proposed answer in the comment section by liking of disliking a comment
+- Update user profile information
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
 
-Write about what you could not develop during the course of the Hackathon; and about what your project can achieve
-in the future.
+- Track users' contributions on the platform and offer rewards to the highest contributors
+- Enforce rules of engagement on the platform
+- Allow students from other programs to have access to the web app
+- Live sessions between the author of the question, and the person offering the help
+- Adding roles and role-based access on the platform for mentors and students
+- PLD sessions for teams
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -72,14 +89,12 @@ Using Django’s built-in development server, we will populate our app with data
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+What you need to install the software and how to install them.
 
 ```
 Python
-enviroment server
 Django
 pillow
-sqlite3
 Django-crispy-forms
 crispy-bootstrap4
 Django-ckeditor
