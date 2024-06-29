@@ -1,2 +1,3 @@
 #!/bin/bash
-python3 manage.py collectstatic
+pip install -r requirements.txt
+python3.8 manage.py collectstatic
