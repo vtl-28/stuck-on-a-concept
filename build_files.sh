@@ -1,2 +1,2 @@
-pip install -r requirements.tx.
+pip install -r requirements.txt
 python3.8 manage.py collectstatic
