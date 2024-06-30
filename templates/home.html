@@ -7,7 +7,7 @@
     <nav class="navbar navbar-expand-xl navbar-light bg-white" style="border-bottom: 0.1rem solid #D9D9D9;">
         <div class="container">
           <div id="nav_logo_div">
-            <img src="{% static 'images/WhatsApp Image 2024-06-12 at 9.47.36 PM.jpeg' %}" id="nav_logo">
+            <img src="{% static 'images/logo.jpeg' %}" id="nav_logo">
             <a class="navbar-brand" href="{% url 'soac_base:home' %}" style="margin-right: 0px;">stuck-on-a-concept</a>
           </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="burger_icon">
@@ -60,22 +60,8 @@
       </div>
       {% endif %}
 
-      {% comment %} <div style="margin-top: 10px;">
-        {% if messages %}
-        {% for message in messages %}
-      <div class="alert alert-{{ message.tags }}" role="alert">
-        <h4 style="text-align: center;">{{ message }}</h4>
-      </div>
-      {% endfor %}
-    {% endif %} {% endcomment %}
-
     </div>
     
-    {% comment %} {% if user.is_authenticated %}
-    <p>logged in</p>
-    {% else %}
-    <p>logged out</p>
-    {% endif %} {% endcomment %}
  </header>
 
 {% endblock navbar %}
