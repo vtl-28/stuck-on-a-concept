@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-56)(3q8fbq67f9ocrjf+3u$6dgb6gb6vn#@o8u1so2l!2shzcl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'soac_users',
     'crispy_forms',
     'crispy_bootstrap4',
-    'ckeditor'
+    'ckeditor',
+    'compressor',
+    'django_libsass',
+    'sass_processor',
 ]
 
 MIDDLEWARE = [
@@ -142,6 +145,21 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Django Compressor settings
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+COMPRESS_OFFLINE = True
+COMPRESS_ENABLED = True
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+SASS_PROCESSOR_ROOT = STATIC_ROOT
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
