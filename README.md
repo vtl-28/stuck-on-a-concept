@@ -61,7 +61,7 @@ As a student of the ALX software engineering program, I want to seek help with a
 
 ##    Live Demo / Recorded Virsual
 
-- [Stuck-on-a-Concept#Live](https://stuckonaconcept.pythonanywhere.com)
+- [Stuck-on-a-Concept#Live](https://stuck-on-a-concept.vercel.app/)
 
 ### VIDEO
 
