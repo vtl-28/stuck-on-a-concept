@@ -20,6 +20,9 @@
             display: flex;
             justify-content: space-around;
         }
+        {% comment %} #dialog_box {
+            height: 300px;
+        } {% endcomment %}
         #logout-btn{
             background-color: rgb(50, 122, 255);
         }
@@ -90,8 +93,8 @@
 <body>
     <form action="" method="POST" class="my-5">
         {% csrf_token %}
-        <div class="container border rounded bg-light" style="height: 200px; " >
-            <h2 style="text-align: center; padding-top: 35px; font-family: 'Poppins', sans-serif; color: black;">Do you wanna delete this question? <b>{{ question.title }}</b></h2>
+        <div class="container border rounded bg-light py-4" id="dialog_box">
+            <h2 style="text-align: center; font-family: 'Poppins', sans-serif; color: black;">Do you wanna delete this question? <b>{{ question.title }}</b></h2>
             <div class="container11">
                 <!-- <button class="btn btn-outline-danger" type="submit" style="font-family: 'Poppins', sans-serif;"><a href="" class="btn btn-outline-danger" style="text-decoration: none;">Delete</a></button> -->
                 <button class="btn btn-outline-danger" type="submit" style="font-family: 'Poppins', sans-serif;">Delete</button>
