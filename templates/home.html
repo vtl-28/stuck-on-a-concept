@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block navbar %}
+{% comment %} {% block navbar %}
 
 <header>
     <nav class="navbar navbar-expand-xl navbar-light bg-white" style="border-bottom: 0.1rem solid #D9D9D9;">
@@ -24,10 +24,10 @@
               </li>
               {% else %}
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">About</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'soac_base:about' %}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
+                <a class="nav-link" href="{% url 'soac_base:features' %}">Features/Products</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Q&A</a>
@@ -64,9 +64,158 @@
     
  </header>
 
-{% endblock navbar %}
+{% endblock navbar %} {% endcomment %}
 
-{% block footer %}
+{% block landing_page %}
+<section class="landing_page">
+  <div class="carousel-container">
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-color: #007033"></button>
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2" style="background-color: #007033"></button>
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3" style="background-color: #007033"></button>
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4" style="background-color: #007033"></button>
+
+          </div>
+          <div class="carousel-inner">
+              <div class="carousel-item carousel-container d-flex justify-content-center" style="position: relative;">
+                  <img src="{% static 'images/1718040870438.png' %}" class="d-block img-fluid" alt="..." style="width: 100%; height: 400px;">
+                  <div class="carousel-caption d-none d-md-block" style="position: absolute; top: 70%; left: 50%; transform: translate(-50%, -2%);">
+                      <h5 id="carousel_item_title">A one stop to all your coding challenges</h5>
+                  </div>
+              </div>
+              <div class="carousel-item carousel-container d-flex justify-content-center" style="position: relative;">
+                  <img src="{% static 'images/1718040870438.png' %}" class="d-block img-fluid" alt="..." style="width: 100%; height: 400px;">
+                  <div class="carousel-caption d-none d-md-block" style="position: absolute; top: 70%; left: 50%; transform: translate(-50%, -2%);">
+                      <h5 id="carousel_item_title">Network and share ideas.</h5>
+                  </div>
+              </div>
+              <div class="carousel-item carousel-container d-flex justify-content-center" style="position: relative;">
+                  <img src="{% static 'images/business-partners-shaking-hands-agreement-min.jpg' %}" class="d-block img-fluid" alt="..." style="width: 100%; height: 400px;">
+                  <div class="carousel-caption d-none d-md-block" style="position: absolute; top: 70%; left: 50%; transform: translate(-50%, -2%);">
+                      <h5 id="carousel_item_title">A thriving community for SE students.</h5>
+                  </div>
+              </div>
+              <div class="carousel-item active carousel-container d-flex justify-content-center" style="position: relative;">
+                  <img src="{% static 'images/supervisor-doing-inspection-data-center-receiving-performance-assessment-min.jpg' %}" class="d-block img-fluid" alt="..." style="width: 100%; height: 400px;">
+                  <div class="carousel-caption d-none d-md-block" style="position: absolute; top: 70%; left: 50%; transform: translate(-50%, -2%);">
+                      <h5 id="carousel_item_title">Get the solutions to your coding challenges with ease.</h5>
+                  </div>
+              </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+  </div>
+</section>
+<section style="background-color: #4472C4;">
+  <div class="py-5 d-flex flex-column justify-content-between">
+      <h6 class="text-white text-center">A community of ALX software engineering learners</h6>
+      <h6 class="text-white mb-0 text-center">A platform where the coding challenges of learners are addressed</h6>
+  </div>
+</section>
+<section class="container  d-flex flex-column">
+  <div class="py-5 d-flex flex-column align-items-center">
+      <h5 class="mb-4 text-center">Make the most out of Stuck-On-A-Concept</h5>
+      <div class="row ">
+          <div class="d-flex col">
+              <img src="{% static 'images/composition-with-book-light-bulb.jpg' %}" style="height: 100px; width: 100px;"/>
+              <div class="px-2 d-flex justify-content-center align-items-center">
+                  <p style="font-size: 13px;" class="text-center">KNOWLEDGE SHARING IS THE KEY TO SUCCESS</p>
+              </div>
+          </div>
+          <div class="d-flex col">
+              <img src="{% static "images/sharingideas.jpg"%}" style="height: 100px; width: 100px;"/>
+              <div class="px-2 d-flex justify-content-center align-items-center">
+                  <p style="font-size: 13px;" class="text-center">KNOWLEDGE SHARING IS THE KEY TO SUCCESS</p>
+              </div>
+          </div>
+          <div class="d-flex col">
+              <img src="{% static "images/solutiontoproblems.png" %}" style="height: 100px; width: 100px;"/>
+              <div class="px-2 d-flex justify-content-center align-items-center">
+                  <p style="font-size: 13px;" class="text-center">FIND SOLUTIONS TO CODING CHALLENGES</p>
+              </div>
+          </div>
+          <div class="d-flex col">
+              <img src="{% static "images/jobs.jpg" %}" style="height: 100px; width: 100px;">
+              <div class="px-2 d-flex justify-content-center align-items-center">
+                  <p style="font-size: 13px;" class="text-center">FIND JOBS IN THE TECH INDUSTRY</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class=" d-flex flex-column align-items-center" id="benefits_section">
+      <h6>The Benefits Of Networking</h6>
+      <div class="w-100" id="benefits_div">
+          <div class="benefits_row">
+              <div class="d-flex flex-column">
+                  <div class="bitten-rectangle py-5">
+                      <div class="circle">1</div>
+                      <p class="text-white text-center">Allow acccess to new information</p>
+                  </div>
+              </div>
+              <div class="d-flex flex-column">
+                  <div class="bitten-rectangle py-5">
+                      <div class="circle">2</div>
+                      <p class="text-white text-center">Raise your personal profile</p>
+                  </div>
+              </div>
+              <div class="d-flex flex-column">
+                  <div class="bitten-rectangle py-5">
+                      <div class="circle">3</div>
+                      <p class="text-white text-center">Can help advance your career</p>
+                  </div>
+              </div>
+          </div>
+          <div class="benefits_row">
+              <div class="d-flex flex-column">
+                  <div class="bitten-rectangle py-5">
+                      <div class="circle">4</div>
+                      <p class="text-white text-center">Build your confidence</p>
+                  </div>
+              </div>
+              <div class="d-flex flex-column">
+                  <div class="bitten-rectangle py-5">
+                      <div class="circle">5</div>
+                      <p class="text-white text-center">Establishes a pool of references</p>
+                  </div>
+              </div>
+              <div class="d-flex flex-column">
+                  <div class="bitten-rectangle py-5">
+                      <div class="circle">6</div>
+                      <p class="text-white text-center">Develops lasting relationships</p>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+    </div>
+</section>
+<section style="background-color: #4472C4;">
+  <div class="container">
+      <div class="py-5 coding_languages">
+          <div class="">
+              <img class="img-fluid" src="{% static "images/soft.png"%}"/>
+          </div>
+          <div class="py-4">
+              <img class="img-fluid" src="{% static "images/codinglanguages.png"%}"/>
+          </div>
+          <div class="">
+              <img class="img-fluid" src="{% static "images/datascience.jpg"%}" style="height: 112px;"/>
+          </div>
+
+        </div>
+  </div>
+</section>
+{% endblock landing_page %}
+
+{% comment %} {% block footer %}
 <footer class="py-5 bg-dark">
   <div class="container">
       <div class="row">
@@ -122,4 +271,4 @@
   </div>
 
 </footer
-{% endblock footer %}
+{% endblock footer %} {% endcomment %}

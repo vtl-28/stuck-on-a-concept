@@ -5,6 +5,8 @@ app_name = 'soac_base'
 
 urlpatterns = [
     path('', views.home, name="home"),
+    path('about/', views.about, name="about"),
+    path('features/', views.features, name="features"),
 
     #CRUD Function
     path('questions/', views.QuestionListView.as_view(), name="question-lists"),
