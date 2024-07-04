@@ -14,3 +14,6 @@ venv/
 env/
 node_modules/
 .sass-cache/
+package*.json
+gulpfile.js
+.vercel/
