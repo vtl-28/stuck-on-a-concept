@@ -1,0 +1,256 @@
+{% extends 'base.html' %} {% load static %} {% block features %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins');
+        body {
+          background-color: #ffff
+          /* background: linear-gradient(230deg, orange 0%, yellow 100%); */
+
+      }
+      .team_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 700px;
+
+      }
+      .team_member {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+        box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+        height: 220px;
+      }
+      .team_member_socials {
+        display: flex;
+        justify-content: space-between;
+
+      }
+      @media only screen and (min-width: 576px) {
+        .paragraph_container p {
+          text-align: left;
+        }
+        .team_container {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          height: 225px;
+
+        }
+        .team_member {
+         width: 30%;
+
+        }
+        .feature_text {
+            font-size: 12px;
+        }
+    }
+    @media only screen and (min-width: 992px) {
+        .feature_text {
+            font-size: 13px;
+        }
+    }
+
+      .padding {
+          padding: 4rem 0rem;
+      }
+
+      .user-card-full {
+          overflow: hidden
+      }
+
+      .card {
+          border-radius: 5px;
+          -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+          box-shadow: 0 1px 20px 0 rgba(53, 53, 53, 0.452);
+          border: none;
+          margin-bottom: 30px
+      }
+
+      .m-r-0 {
+          margin-right: 0px
+      }
+
+      .m-l-0 {
+          margin-left: 0px
+      }
+
+      .user-card-full .user-profile {
+          border-radius: 5px 0 0 5px
+      }
+
+      .bg-c-lite-green {
+          {% comment %} background: -webkit-gradient(linear, left top, right top, from(#001848), to(#001848));
+          background: linear-gradient(to right, rgb(0, 24, 72), blue) {% endcomment %}
+          background-color: #001848;
+      }
+
+      .user-profile {
+          padding: 20px 0
+      }
+
+      {% comment %} .card-block {
+          padding: 0rem 1.25rem;
+      } {% endcomment %}
+
+      .m-b-25 {
+          margin-bottom: 25px
+      }
+
+      .img-radius {
+          border-radius: 100px
+      }
+      #question_btns {
+          width: 100%;
+      }
+      @media only screen and (min-width: 492px) {
+          #question_btns {
+              width: 75%;
+          }
+      }
+
+      @media only screen and (min-width: 1400px) {
+          .img-radius {
+          border-radius: 100px
+      }
+      }
+      h6 {
+          font-size: 13px;
+          font-family: 'Poppins', sans-serif;
+
+      }
+
+      .card .card-block p {
+          line-height: 25px
+      }
+
+      @media only screen and (min-width: 1400px) {
+          p {
+              font-size: 14px
+          }
+      }
+
+      .card-block {
+          padding: 1.25rem 0rem;
+      }
+
+      .b-b-default {
+          border-bottom: 1px solid #e0e0e0
+      }
+
+      .m-b-20 {
+          margin-bottom: 20px
+      }
+
+      .p-b-5 {
+          padding-bottom: 5px !important
+      }
+
+      .card .card-block p {
+          line-height: 25px
+      }
+
+      .m-b-10 {
+          margin-bottom: 10px
+      }
+
+      .text-muted {
+          color: #919aa3 !important
+      }
+
+      .b-b-default {
+          border-bottom: 1px solid #e0e0e0
+      }
+
+      .f-w-600 {
+          font-weight: 600
+      }
+
+      .m-b-20 {
+          margin-bottom: 20px
+      }
+
+      {% comment %} .m-t-40 {
+          margin-top: 20px
+      } {% endcomment %}
+
+      .p-b-5 {
+          padding-bottom: 5px !important
+      }
+
+      .m-b-10 {
+          margin-bottom: 10px
+      }
+
+      .m-t-40 {
+          margin-top: 20px
+      }
+
+      .user-card-full .social-link li {
+          display: inline-block
+      }
+
+      .user-card-full .social-link li a {
+          font-size: 20px;
+          margin: 0 10px 0 0;
+          -webkit-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-content page-container" id="page-content">
+      <div class="padding">
+        <div class="row d-flex justify-content-center">
+          <div class="col-xl-8 col-md-8 card p-4">
+            <div class="user-card-full">
+              <h4 class="text-center">stuck-on-a-concept offers these amazing key features</h4>
+              </div>
+              <div class="mt-4 px-4">
+                <div class="team_container">
+                  <div class="team_member py-4 px-2">
+                    <img src="{% static "images/solutiontoproblems.png"%}"
+                    class="rounded-circle img-fluid" style="height: 100px;
+                    width: 100px;"/>
+                    <h6 class="mt-2 fw-bold">Coding Challenges</h6>
+                    <div class="feature_description">
+                        <p class="text-center feature_text">Get assistance and solutions to coding challenges</p>
+                    </div>
+                  </div>
+                  <div class="team_member py-4 px-2">
+                    <img src="{% static "images/rewardd-min.jpg"%}"
+                    class="rounded-circle img-fluid" style="height: 100px;
+                    width: 100px;"/>
+                    <h6 class="mt-2 fw-bold">Rewards</h6>
+                    <div class="feature_description">
+                        <p class="text-center feature_text">Get rewarded for making valuable contributions towards assisting other students</p>
+                    </div>
+                  </div>
+                  <div class="team_member py-4 px-2">
+                    <img src="{% static "images/sharingideas.jpg"%}"
+                    class="rounded-circle img-fluid" style="height: 100px;
+                    width: 100px;"/>
+                    <h6 class="mt-2 fw-bold">Team Collaboration</h6>
+                    <div class="feature_description">
+                        <p class="text-center feature_text">Network and build relationships with like-minded people</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock features %}

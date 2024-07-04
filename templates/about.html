@@ -1,0 +1,272 @@
+{% extends 'base.html' %} {% load static %} {% block about %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+          @import url('https://fonts.googleapis.com/css?family=Poppins');
+          body {
+            background-color: #ffff
+            /* background: linear-gradient(230deg, orange 0%, yellow 100%); */
+
+        }
+        a {
+          color: black;
+        }
+        a:focus {
+          color: black;
+        }
+        a:hover {
+          color: black;
+        }
+        .story_container {
+          height: 100%%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+        .story_container div:first-child {
+          margin-bottom: 20px;
+        }
+        .story_container div:nth-child(2) {
+          margin-bottom: 25px;
+        }
+        .paragraph_container p {
+          margin-bottom: 0rem;
+          text-align: center;
+        }
+
+        .padding {
+            padding: 4rem 0rem;
+        }
+        .team_container {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 700px;
+
+        }
+        .team_member {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 5px;
+          -webkit-box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+          box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+          height: 220px;
+        }
+        .team_member_socials {
+          display: flex;
+          justify-content: space-between;
+
+        }
+       .repo {
+          display: flex;
+          margin-top: 20px;
+          justify-content: center;
+        }
+        {% comment %} .repo a{
+          text-align: center;
+        } {% endcomment %}
+
+        .user-card-full {
+            overflow: hidden
+        }
+
+        .card {
+            border-radius: 5px;
+            -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+            box-shadow: 0 1px 20px 0 rgba(53, 53, 53, 0.452);
+            border: none;
+            margin-bottom: 30px
+        }
+
+        .m-r-0 {
+            margin-right: 0px
+        }
+
+        .m-l-0 {
+            margin-left: 0px
+        }
+
+        .user-card-full .user-profile {
+            border-radius: 5px 0 0 5px
+        }
+
+        .bg-c-lite-green {
+            {% comment %} background: -webkit-gradient(linear, left top, right top, from(#001848), to(#001848));
+            background: linear-gradient(to right, rgb(0, 24, 72), blue) {% endcomment %}
+            background-color: #001848;
+        }
+
+        .user-profile {
+            padding: 20px 0
+        }
+
+        {% comment %} .card-block {
+            padding: 0rem 1.25rem;
+        } {% endcomment %}
+
+        .m-b-25 {
+            margin-bottom: 25px
+        }
+
+        .img-radius {
+            border-radius: 100px
+        }
+        @media only screen and (min-width: 576px) {
+          .paragraph_container p {
+            text-align: left;
+          }
+          .team_container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 225px;
+
+          }
+          .team_member {
+           width: 30%;
+
+          }
+      }
+        @media only screen and (min-width: 492px) {
+          #question_btns {
+              width: 75%;
+          }
+      }
+      {% comment %} @media only screen and (min-width: 607px) {
+        .repo a {
+            text-align: center;
+        }
+    } {% endcomment %}
+        .card-block {
+            padding: 1.25rem 0rem;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="page-content page-container" id="page-content">
+      <div class="padding">
+        <div class="row d-flex justify-content-center">
+          <div class="col-xl-8 col-md-8 card p-4">
+            <div class="user-card-full">
+              <h1 class="text-center">Our story...</h1>
+              <div class="story_container">
+                <div class="paragraph_container">
+                  <p>
+                    Our team, composed of passionate learners from the ALX
+                    Software Engineering program, experienced firsthand the
+                    frustrations of coding challenges. We often found ourselves
+                    stuck on complex problems, spending countless hours
+                    searching for solutions online, and feeling overwhelmed by
+                    the lack of accessible guidance. These struggles highlighted
+                    the need for a platform that could provide timely, reliable
+                    support tailored specifically for students like us.
+                  </p>
+                </div>
+                <div class="paragraph_container">
+                  <p>
+                    One pivotal moment that inspired us was when one of the team
+                    members, encountered a baffling error during an intense
+                    project. Despite his best efforts, he couldn’t solve it
+                    alone. Reaching out to a peer, they collaborated and finally
+                    found the solution together. This experience underscored the
+                    importance of community and accessible help, sparking the
+                    idea for Stuck-on-a-Concept: a learning app designed to
+                    offer real-time assistance, collaborative learning
+                    opportunities, and a supportive community.
+                  </p>
+                </div>
+                <div class="paragraph_container">
+                  <p>
+                    Stuck-on-a-Concept aims to transform the learning experience
+                    for ALX students by providing immediate help with coding
+                    problems, connecting learners with peers and mentors, and
+                    offering a wealth of accessible resources. Our vision is to
+                    foster an empowered community of future software engineers
+                    who can overcome obstacles, build confidence, and achieve
+                    their dreams without being hindered by avoidable
+                    frustrations. Join us, and let’s solve these challenges
+                    together.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-5 px-4">
+                <h1 class="text-center">The Team</h1>
+
+                <div class="team_container">
+                  <div class="team_member py-4">
+                    <img src="{% static "images/VUYISILE-min.png"%}"
+                    class="rounded-circle img-fluid" style="height: 100px;
+                    width: 100px;"/>
+                    <h6>Vuyisile Lehola</h6>
+                    <div class="team_member_socials xs: w-50 md: w-75">
+                      <a href="https://x.com/vt_lehola" target="blank"
+                        ><i class="bi bi-twitter"></i
+                      ></a>
+                      <a
+                        href="https://www.linkedin.com/in/vuyisile-lehola-99a597122/"
+                        target="blank"
+                        ><i class="bi bi-linkedin"></i
+                      ></a>
+                      <a href="https://github.com/vtl-28" target="blank"
+                        ><i class="bi bi-github"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="team_member py-4">
+                    <img src="{% static "images/COMFORT-min.png"%}"
+                    class="rounded-circle img-fluid" style="height: 100px;
+                    width: 100px;"/>
+                    <h6>Comfort Shingange</h6>
+                    <div class="team_member_socials xs: w-50 md: w-75">
+                      <a href="https://x.com/ComfortShingan1" target="blank"
+                        ><i class="bi bi-twitter"></i
+                      ></a>
+                      <a
+                        href="https://www.linkedin.com/in/comfort-shingange-ab4446250/"
+                        target="blank"
+                        ><i class="bi bi-linkedin"></i
+                      ></a>
+                      <a href="https://github.com/Comfort99" target="blank"
+                        ><i class="bi bi-github"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="team_member py-4">
+                    <img src="{% static "images/SADIK ADAMS-min.png"%}"
+                    class="rounded-circle img-fluid" style="height: 100px;
+                    width: 100px;"/>
+                    <h6>Sadik Adams</h6>
+                    <div class="team_member_socials xs: w-50 md: w-75">
+                      <a href="https://x.com/najultinti" target="blank"
+                        ><i class="bi bi-twitter"></i
+                      ></a>
+                      <a
+                        href="https://www.linkedin.com/in/adams-sadik-inspires/"
+                        target="blank"
+                        ><i class="bi bi-linkedin"></i
+                      ></a>
+                      <a href="https://github.com/PoisebTechHub" target="blank"
+                        ><i class="bi bi-github"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="repo">
+                  <a href="https://github.com/vtl-28/stuck-on-a-concept" target="blank" class="ms-1 text-decoration-none"><span class="fw-bold">Project Github repository: </span> https://github.com/vtl-28/stuck-on-a-concept</a> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock about %}
