@@ -7,146 +7,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-          @import url('https://fonts.googleapis.com/css?family=Poppins');
-          body {
-            background-color: #ffff
-            /* background: linear-gradient(230deg, orange 0%, yellow 100%); */
+      @import url("https://fonts.googleapis.com/css?family=Poppins");
+      body {
+        background-color: #ffff;
+      }
+      a {
+        color: black;
+      }
+      a:focus {
+        color: black;
+      }
+      a:hover {
+        color: black;
+      }
+      .story_container {
+        height: 100%%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .story_container div:first-child {
+        margin-bottom: 20px;
+      }
+      .story_container div:nth-child(2) {
+        margin-bottom: 25px;
+      }
+      .paragraph_container p {
+        margin-bottom: 0rem;
+        text-align: center;
+      }
 
-        }
-        a {
-          color: black;
-        }
-        a:focus {
-          color: black;
-        }
-        a:hover {
-          color: black;
-        }
-        .story_container {
-          height: 100%%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-        .story_container div:first-child {
-          margin-bottom: 20px;
-        }
-        .story_container div:nth-child(2) {
-          margin-bottom: 25px;
-        }
+      .padding {
+        padding: 4rem 0rem;
+      }
+      .team_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 700px;
+      }
+      .team_member {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+        box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+        height: 220px;
+      }
+      .team_member_socials {
+        display: flex;
+        justify-content: space-between;
+      }
+      .repo {
+        display: flex;
+        margin-top: 20px;
+        justify-content: center;
+      }
+
+      .user-card-full {
+        overflow: hidden;
+      }
+
+      .card {
+        border-radius: 5px;
+        -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+        box-shadow: 0 1px 20px 0 rgba(53, 53, 53, 0.452);
+        border: none;
+        margin-bottom: 30px;
+      }
+
+      .bg-c-lite-green {
+        background-color: #001848;
+      }
+
+      @media only screen and (min-width: 576px) {
         .paragraph_container p {
-          margin-bottom: 0rem;
-          text-align: center;
-        }
-
-        .padding {
-            padding: 4rem 0rem;
+          text-align: left;
         }
         .team_container {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           justify-content: space-between;
-          height: 700px;
-
+          height: 225px;
         }
         .team_member {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-          border-radius: 5px;
-          -webkit-box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
-          box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
-          height: 220px;
+          width: 30%;
         }
-        .team_member_socials {
-          display: flex;
-          justify-content: space-between;
-
-        }
-       .repo {
-          display: flex;
-          margin-top: 20px;
-          justify-content: center;
-        }
-        {% comment %} .repo a{
-          text-align: center;
-        } {% endcomment %}
-
-        .user-card-full {
-            overflow: hidden
-        }
-
-        .card {
-            border-radius: 5px;
-            -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
-            box-shadow: 0 1px 20px 0 rgba(53, 53, 53, 0.452);
-            border: none;
-            margin-bottom: 30px
-        }
-
-        .m-r-0 {
-            margin-right: 0px
-        }
-
-        .m-l-0 {
-            margin-left: 0px
-        }
-
-        .user-card-full .user-profile {
-            border-radius: 5px 0 0 5px
-        }
-
-        .bg-c-lite-green {
-            {% comment %} background: -webkit-gradient(linear, left top, right top, from(#001848), to(#001848));
-            background: linear-gradient(to right, rgb(0, 24, 72), blue) {% endcomment %}
-            background-color: #001848;
-        }
-
-        .user-profile {
-            padding: 20px 0
-        }
-
-        {% comment %} .card-block {
-            padding: 0rem 1.25rem;
-        } {% endcomment %}
-
-        .m-b-25 {
-            margin-bottom: 25px
-        }
-
-        .img-radius {
-            border-radius: 100px
-        }
-        @media only screen and (min-width: 576px) {
-          .paragraph_container p {
-            text-align: left;
-          }
-          .team_container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            height: 225px;
-
-          }
-          .team_member {
-           width: 30%;
-
-          }
       }
-        @media only screen and (min-width: 492px) {
-          #question_btns {
-              width: 75%;
-          }
+      @media only screen and (min-width: 492px) {
+        #question_btns {
+          width: 75%;
+        }
       }
-      {% comment %} @media only screen and (min-width: 607px) {
-        .repo a {
-            text-align: center;
-        }
-    } {% endcomment %}
-        .card-block {
-            padding: 1.25rem 0rem;
-        }
     </style>
   </head>
   <body>
@@ -259,7 +213,13 @@
                   </div>
                 </div>
                 <div class="repo">
-                  <a href="https://github.com/vtl-28/stuck-on-a-concept" target="blank" class="ms-1 text-decoration-none"><span class="fw-bold">Project Github repository: </span> https://github.com/vtl-28/stuck-on-a-concept</a> 
+                  <a
+                    href="https://github.com/vtl-28/stuck-on-a-concept"
+                    target="blank"
+                    class="ms-1 text-decoration-none"
+                    ><span class="fw-bold">Project Github repository: </span>
+                    https://github.com/vtl-28/stuck-on-a-concept</a
+                  >
                 </div>
               </div>
             </div>

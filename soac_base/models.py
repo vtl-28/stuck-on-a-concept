@@ -30,7 +30,6 @@ class Answer(models.Model):
     """Question model map relative to Question"""
     question = models.ForeignKey(Question, related_name="answer", on_delete=models.CASCADE)
     name = models.CharField(max_length=1000)
-    # body = models.TextField(null=True, blank=True)
     body = RichTextField()
     date_created = models.DateTimeField(default=timezone.now)
 

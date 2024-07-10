@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseBadRequest, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from .models import Question, Answer
@@ -22,17 +22,6 @@ def features(request):
 @login_required
 def like_view(request, pk):
     """ A function that allows users to post likes """
-    # if request.method == 'POST':
-    #     request = get_object_or_404(Question, pk=pk)
-    #     if request.user in question.likes.all():
-    #         question.likes.remove(request.user)
-    #         liked = False
-    #     else:
-    #         question.likes.add(request.user)
-    #         liked = True
-    #     return redirect('soac_base:question-detail', pk=pk)
-    # else:
-    #     return HttpResponseBadRequest('Invalid request method.')
     post = get_object_or_404(Question, id=request.POST.get('question_id'))
     liked = False
     if post.likes.filter(id=request.user.id).exists():
@@ -100,19 +89,10 @@ class QuestionUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
         if self.request.user == questions.user:
             return True
         return False
-
-    # def has_permission(self):
-    #     """
-    #     A help function to map the request with the update permissions
-    #     """
-    #     question = self.get_object()
-    #     return super().has_permission() and question.user == self.request.user
-
 class QuestionDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
     """ An instance that permits the rightful user to delete their question """
     model = Question
     context_object_name = 'question'
-    # permission_required = 'soa_base.delete_question'
     success_url = "/questions"
 
     def test_func(self):
@@ -120,10 +100,6 @@ class QuestionDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
         if self.request.user == questions.user:
             return True
         return False
-    # def has_permission(self):
-    #     """ A function that map the request with the delete permissions """
-    #     question = self.get_object()
-    #     return super().has_permission() and question.user == self.request.user
 
 class AnswerCreateView(LoginRequiredMixin,CreateView):
     """ A class that enable users to answer Questions """
