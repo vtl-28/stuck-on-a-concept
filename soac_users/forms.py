@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.db import models
 from django.db.models import fields
 from .models import Profile
+from cloudinary.forms import CloudinaryFileField
 
 class UserRegisterForm(UserCreationForm):
     email = models.EmailField()
@@ -11,19 +12,12 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = '__all__'
 
 
     def __init__(self, *args, **kwargs):
         super(UserRegisterForm, self).__init__(*args, **kwargs)
-
-
-        self.fields['username'].widget.attrs.update({'class': 'form-control'})
-        self.fields['email'].widget.attrs.update({'class': 'form-control'})
-        self.fields['city'].widget.attrs.update({'class': 'form-control'})
-        self.fields['password1'].widget.attrs.update({'class': 'form-control'})
-        self.fields['password2'].widget.attrs.update({'class': 'form-control'})
-        
+       
         ordered_fields = ['username', 'email', 'city', 'password1', 'password2']
         self.fields = {k: self.fields[k] for k in ordered_fields if k in self.fields}
     
@@ -45,6 +39,7 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'email']
 
 class ProfileUpdateForm(forms.ModelForm):
+    image = CloudinaryFileField()
     class Meta:
         model = Profile
         fields = ['bio', 'city', 'image']
