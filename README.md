@@ -100,7 +100,7 @@ crispy-bootstrap4
 Django-ckeditor
 ```
 
-### Installing
+### Installation of Dependencies
 
 ```
 sudo apt install python
